@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiLanding.ng</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: #f9fafb;
+    }
+
+    /* --- NAVBAR --- */
+    .navbar {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: linear-gradient(90deg, #007bff, #00c6ff);
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .navbar-logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-logo span {
+      color: #ffde59;
+    }
+
+    .navbar-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .navbar-links a:hover {
+      color: #ffde59;
+      transform: translateY(-2px);
+    }
+
+    /* --- Responsivo --- */
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 1.8rem;
+      }
+    }
+
+    /* Menú móvil */
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: #007bff;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      text-align: center;
+      animation: slideDown 0.3s ease;
+    }
+
+    .mobile-menu a {
+      padding: 1rem;
+      color: #fff;
+      text-decoration: none;
+      display: block;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-logo">MiLanding<span>.ng</span></div>
+    <nav class="navbar-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#inicio">Inicio</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+
+  <script>
+    // Script para el menú móvil
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+    }
+  </script>
+
+</body>
+</html>
